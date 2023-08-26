@@ -1,0 +1,151 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2OTMwODc5NzZ9.5xGilyUoC5knqq_nEn1yDVClbIKrCfJUusqiLTahi1U
+### user create
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Muhammed",
+  "email": "mu@test.com",
+  "school_id": "3",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### user login
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "mu@test.com",
+  "password": "password"
+}
+
+### goal create
+POST http://localhost:3000/goals
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "description": "I want a goal" ,
+  "startdate": "1st August",
+  "enddate": "10 August",
+  "status": "incomplete",
+  "achivemet": "Not achievemet"
+}
+
+### goal show
+Get http://localhost:3000/goals
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### activity create
+POST http://localhost:3000/activities
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "activity_type": "Activity" ,
+  "date": "1st August",
+  "detail": "details about the activity",
+  "carbon_footprint": "minor"
+}
+
+### activity show
+GET http://localhost:3000/activities
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### report create
+POST http://localhost:3000/reports
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "activity_id": "1",
+  "recommendations": "Activity" 
+}
+
+### activity show
+GET http://localhost:3000/reports
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+POST http://localhost:3000/schools
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "description": "I want a goal" ,
+  "startdate": "1st August",
+  "enddate": "10 August",
+  "status": "incomplete",
+  "achivemet": "Not achievemet"
+}
+
+### goal show
+Get http://localhost:3000/schools/2
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+
+### product index
+GET http://localhost:3000/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDI3Mjk4MDJ9.m-uK0wbKXR8AAD7ibJFz8sXc7Gf7VzT3HY60TwNijhA
+
+### product show
+GET http://localhost:3000/products
+
+### product create
+POST http://localhost:3000/images
+Content-Type: application/json
+
+{
+  "url": "https://www.mercedeshoffman.com/inventoryphotos/2603/wdcyc7hj6kx312828/ip/2.jpg?height=400",
+  "product_id": 30
+}
+
+### product create
+POST http://localhost:3000/images
+Content-Type: application/json
+
+{
+  "url": "https://www.mercedeshoffman.com/inventoryphotos/2603/w1k3g4fbxnj333709/ip/1.jpg?height=400",
+  "product_id": 1
+}
+
+### product update
+delete http://localhost:3000/products/1
+Content-Type: application/json
+
+
+
+### product create
+POST http://localhost:3000/carted_products
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "product_id": 3,
+  "quantity": 1
+}
+
+### product destroy
+get http://localhost:3000/carted_products
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+###
+get http://localhost:3000/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDM2NjAzNDN9.Qx0dp-pHJth5pY9spVvnfPacvqqmeSBw-p6D48akN58
+
+
+### cartedproduct create
+POST http://localhost:3000/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDMyNDk3MDJ9.vPn0tYT5PkAMsh-AghSTSVWKiJRlj5xmptHcvFkfYqQ
+
+
+### cartedproduct create
+GET http://localhost:3000/cartedproducts
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
